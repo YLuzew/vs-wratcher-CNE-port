@@ -103,25 +103,34 @@
 
 	<group name="MobileOptions" prefix="MobileOptions.">
 		<str id="extraButtons-name">额外控件</str>
-		<str id="extraButtons-desc">Select how many extra buttons you prefer to have on hitbox.</str>
+		<str id="extraButtons-desc">为你的钢琴键增加更多的按键</str>
 
 		<str id="hitboxAlpha-name">钢琴键透明度</str>
-		<str id="hitboxAlpha-desc">Change how opaque the Hitbox should be</str>
+		<str id="hitboxAlpha-desc">更改钢琴键的透明度</str>
+
+		<str id="oldPadTexture-name">旧的触摸板纹理</str>
+		<str id="oldPadTexture-desc">如果勾选，将会使用旧版的触摸板纹理。</str>
+
+		<str id="touchPadAlpha-name">触摸板透明度</str>
+		<str id="touchPadAlpha-desc">更改触摸板的透明度</str>
 
 		<str id="controlsAlpha-name">按键透明度</str>
 		<str id="controlsAlpha-desc">Change how opaque the Mobile Controls should be</str>
 
 		<str id="hitboxType-name">钢琴键样式</str>
-		<str id="hitboxType-desc">Choose how your Hitbox should look like!</str>
+		<str id="hitboxType-desc">选择你喜欢的钢琴键样式！</str>
 
 		<str id="hitboxMode-name">钢琴键模式</str>
 		<str id="hitboxMode-desc">Choose your Hitbox Style! (Cannot be added custom ones for now)</str>
 
 		<str id="hitboxPos-name">钢琴键位置</str>
-		<str id="hitboxPos-desc">If checked, the Hitbox will be put at the top of the screen, otherwise will stay at the bottom.</str>
+		<str id="hitboxPos-desc">如果勾选，那么额外的钢琴控件将会置于屏幕上方，否则在下方。</str>
+
+		<str id="screenTimeOut-name">允许屏幕超时</str>
+		<str id="screenTimeOut-desc">如果勾选，当播放器处于非活动状态时，手机将进入睡眠模式。</str>
 
 		<str id="storageType-name">存储文件</str>
-		<str id="storageType-desc">Which folder Codename Engine Mods should stored?\nCan be added custom folders, check android/data for that</str>
+		<str id="storageType-desc">Codename Engine 模组应该存放在哪个文件夹？\n可以添加自定义文件夹，具体请查看 android/data。</str>
 
 		<str id="storageTypeChange-title">警告：存储路径已修改</str>
 		<str id="storageTypeChange-body">存储类型已变更。\n需要重启游戏方可生效。\n重启后你需要手动将已安装的模组迁移至新的存储目录中。\n\n点击确定以重启游戏并应用更改</str>
