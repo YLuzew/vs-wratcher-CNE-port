@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-week>
+<week name="vs wratcher" chars=" " sprite="week1">
+	<song>nevermore</song>
+	<difficulty name="Hard"/>
+	<difficulty name="Wretched"/>
+</week>

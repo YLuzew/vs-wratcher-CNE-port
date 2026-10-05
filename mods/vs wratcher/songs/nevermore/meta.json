@@ -1,0 +1,16 @@
+{
+	"customValues": {},
+	"color": "#FFFFFF",
+	"opponentModeAllowed": false,
+	"icon": "wratcher",
+	"difficulties": [
+		"hard",
+		"wretched"
+	],
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "nevermore",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 180
+}

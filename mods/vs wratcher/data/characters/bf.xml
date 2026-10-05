@@ -1,0 +1,15 @@
+<!DOCTYPE codename-engine-character>
+<character y="240" flipX="true" isPlayer="true" icon="bf" color="#31B0D1">
+	<anim name="idle" anim="bf idle" x="25" y="-3"/>
+	<anim name="singLEFTmiss" anim="bf missleft" x="7" y="19"/>
+	<anim name="singDOWNmiss" anim="bf missdown" x="29" y="8"/>
+	<anim name="singUPmiss" anim="bf missup" y="20"/>
+	<anim name="singRIGHTmiss" anim="bf missright" x="-14" y="25"/>
+	<anim name="firstDeath" anim="bf dies" x="37" y="11"/>
+	<anim name="deathLoop" anim="bf Dead Loop" x="37" y="5" loop="true"/>
+	<anim name="deathConfirm" anim="bf Dead confirm" x="37" y="5"/>
+	<anim name="singLEFT" anim="bf left" x="69" y="3"/>
+	<anim name="singDOWN" anim="bf down" x="34"/>
+	<anim name="singUP" anim="bf up" x="37" y="1"/>
+	<anim name="singRIGHT" anim="bf right" x="41" y="2"/>
+</character>

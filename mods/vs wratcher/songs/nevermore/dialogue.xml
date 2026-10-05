@@ -1,0 +1,93 @@
+<!DOCTYPE codename-engine-dialogue>
+<dialogue box="default">
+	<!-- All characters -->
+	<char name="dad" char="dad" position="left" />
+	<char name="boyfriend" char="boyfriend" position="right" />
+	<char name="none" char="none" position="middle" />
+
+	<!-- Lines -->
+	<line char="dad">
+		Wow, you're really good!
+	</line>
+	<line char="boyfriend">
+		Beep!
+	</line>
+	<line char="dad">
+		Guess you're not just some nobody after all, I've underestimated you for a bit.
+	</line>
+	<line char="boyfriend">
+		Beep bap bop bip bep skboop
+	</line>
+	<line char="dad">
+		Yeah, it is a wonderful tune.
+	</line>
+	<line char="dad">
+		We used to sing it every monday.
+	</line>
+	<line char="dad">
+		She would tell me that if anything happens between us, we would always stay together.
+	</line>
+	<line char="dad">
+		She always had a soft heart.
+	</line>
+	<line char="boyfriend">
+		Beep..
+	</line>
+	<line char="dad">
+		Yeah. I miss her a lot.
+	</line>
+	<line char="dad">
+		I swore to myself that I wouldn't let anything in this world hurt her.
+	</line>
+	<line char="boyfriend">
+		Bap bo skrp beepo boop?
+	</line>
+	<line char="dad">
+		I haven't been the best at patience, but I never showed it to her.
+	</line>
+	<line char="dad">
+		I never wanted her heart to feel sorrow because of how I act.
+	</line>
+	<line char="dad">
+		You shouldn't argue with your bride, even if you're in the right.
+	</line>
+	<line char="dad">
+		Doesn't bring anything but hatred.
+	</line>
+	<line char="boyfriend">
+		Bap boop.
+	</line>
+	<line char="none">
+		*Ground begins to shake*
+	</line>
+	<line char="boyfriend">
+		B-BEEP?!
+	</line>
+	<line char="dad">
+		No, No no no no
+	</line>
+	<line char="dad">
+		They didn't, she's not..
+	</line>
+	<line char="boyfriend">
+		BOP??
+	</line>
+	<line char="dad">
+		Quick, sing with me again!
+	</line>
+	<line char="boyfriend">
+		???
+	</line>
+	<line char="dad">
+		If we sing a loud tune, we may be able to signal others!
+	</line>
+	<line char="boyfriend">
+		B-beep bop!
+	</line>
+	<line char="dad">
+		What? Don't be stupid. This isn't an earthquake.
+	</line>
+	<line char="boyfriend">
+		B-bop??
+	</line>
+</dialogue>

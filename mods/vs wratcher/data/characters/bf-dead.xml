@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-character>
+<character y="240" flipX="true" isPlayer="true" icon="bf" color="#31B0D1">
+	<anim name="firstDeath" anim="bf dies" x="37" y="11"/>
+	<anim name="deathLoop" anim="bf Dead Loop" x="37" y="5" loop="true"/>
+	<anim name="deathConfirm" anim="bf Dead confirm" x="37" y="5"/>
+</character>
