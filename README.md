@@ -22,8 +22,20 @@
 
 ## 制作人员
 
-- **Luzew / Yubu** —— 移植与其余内容
-- **长夜-Official** —— Story Mode 界面代工
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="art/yyb.png" width="150" height="150" alt="Luzew / Yubu"><br>
+<b>Luzew / Yubu</b><br>
+移植与其余内容
+</td>
+<td align="center" width="50%">
+<img src="art/cy.png" width="150" height="150" alt="长夜-Official"><br>
+<b>长夜-Official</b><br>
+Story Mode 界面代工
+</td>
+</tr>
+</table>
 
 ## 引擎
 
