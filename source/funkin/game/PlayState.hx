@@ -28,6 +28,8 @@ import funkin.editors.SaveWarning;
 import funkin.editors.charter.Charter;
 import funkin.editors.charter.CharterSelection;
 import funkin.game.SplashHandler;
+import funkin.game.scoring.Rating;
+import funkin.game.scoring.RatingManager;
 import funkin.game.cutscenes.*;
 import funkin.menus.*;
 import funkin.backend.week.WeekData;
@@ -559,6 +561,12 @@ class PlayState extends MusicBeatState
 	 * Base game hit window is 175ms.
 	 */
 	public var hitWindow:Float = Options.hitWindow; // is calculated in create(), is safeFrames in milliseconds.
+
+	/**
+	 * Manager that helps judge note hits to return ratings.
+	 */
+	public var ratingManager:RatingManager = new RatingManager();
+	@:noCompletion @:dox(hide) private var _legacyRating:Rating = {name: "", window: 0, accuracy: 0, score: 0};
 
 	@:noCompletion @:dox(hide) private var _startCountdownCalled:Bool = false;
 	@:noCompletion @:dox(hide) private var _endSongCalled:Bool = false;
@@ -1891,35 +1899,42 @@ class PlayState extends MusicBeatState
 		/**
 		 * CALCULATES RATING
 		 */
-		var noteDiff = Math.abs(Conductor.songPosition - note.strumTime);
-		var daRating:String = "sick";
-		var score:Int = 300;
-		var accuracy:Float = 1;
-
-		if (noteDiff > hitWindow * 0.9)
-		{
-			daRating = 'shit';
-			score = 50;
-			accuracy = 0.25;
-		}
-		else if (noteDiff > hitWindow * 0.75)
-		{
-			daRating = 'bad';
-			score = 100;
-			accuracy = 0.45;
-		}
-		else if (noteDiff > hitWindow * 0.2)
-		{
-			daRating = 'good';
-			score = 200;
-			accuracy = 0.75;
+		var noteDiff = Math.abs(Conductor.songPosition - note.strumTime), rating:Rating;
+		if (!Flags.USE_LEGACY_TIMING) rating = ratingManager.judgeNote(noteDiff);
+		else {
+			(rating = _legacyRating).splash = false;
+			if (noteDiff > hitWindow * 0.9) {
+				rating.window = hitWindow;
+				rating.name = "shit";
+				rating.score = 50;
+				rating.accuracy = 0.25;
+			}
+			else if (noteDiff > hitWindow * 0.75) {
+				rating.window = hitWindow * 0.9;
+				rating.name = "bad";
+				rating.score = 100;
+				rating.accuracy = 0.45;
+			}
+			else if (noteDiff > hitWindow * 0.2) {
+				rating.window = hitWindow * 0.75;
+				rating.name = "good";
+				rating.score = 200;
+				rating.accuracy = 0.75;
+			}
+			else {
+				rating.window = hitWindow * 0.2;
+				rating.name = "sick";
+				rating.score = 300;
+				rating.accuracy = 1;
+				rating.splash = true;
+			}
 		}
 
 		var event:NoteHitEvent;
 		if (strumLine != null && !strumLine.cpu)
-			event = EventManager.get(NoteHitEvent).recycle(false, !note.isSustainNote, !note.isSustainNote, null, defaultDisplayRating, defaultDisplayCombo, note, strumLine.characters, true, note.noteType, note.animSuffix.getDefault(note.strumID < strumLine.members.length ? strumLine.members[note.strumID].animSuffix : strumLine.animSuffix), "game/score/", "", note.strumID, score, note.isSustainNote ? null : accuracy, 0.023, daRating, Options.splashesEnabled && !note.isSustainNote && daRating == "sick", 0.5, true, 0.7, true, true, iconP1);
+			event = EventManager.get(NoteHitEvent).recycle(rating.breaksCombo, !note.isSustainNote, !note.isSustainNote, null, defaultDisplayRating, defaultDisplayCombo, note, strumLine.characters, true, note.noteType, note.animSuffix.getDefault(note.strumID < strumLine.members.length ? strumLine.members[note.strumID].animSuffix : strumLine.animSuffix), "game/score/", "", note.strumID, rating.score, note.isSustainNote ? null : rating.accuracy, rating.health, rating.name, Options.splashesEnabled && !note.isSustainNote && rating.splash, 0.5, true, 0.7, true, true, iconP1);
 		else
-			event = EventManager.get(NoteHitEvent).recycle(false, false, false, null, defaultDisplayRating, defaultDisplayCombo, note, strumLine.characters, false, note.noteType, note.animSuffix.getDefault(note.strumID < strumLine.members.length ? strumLine.members[note.strumID].animSuffix : strumLine.animSuffix), "game/score/", "", note.strumID, 0, null, 0, daRating, false, 0.5, true, 0.7, true, true, iconP2);
+			event = EventManager.get(NoteHitEvent).recycle(false, false, false, null, defaultDisplayRating, defaultDisplayCombo, note, strumLine.characters, false, note.noteType, note.animSuffix.getDefault(note.strumID < strumLine.members.length ? strumLine.members[note.strumID].animSuffix : strumLine.animSuffix), "game/score/", "", note.strumID, 0, null, 0, rating.name, false, 0.5, true, 0.7, true, true, iconP2);
 		event.deleteNote = !note.isSustainNote; // work around, to allow sustain notes to be deleted
 		event = scripts.event(strumLine != null && !strumLine.cpu ? "onPlayerHit" : "onDadHit", event);
 		strumLine.onHit.dispatch(event);

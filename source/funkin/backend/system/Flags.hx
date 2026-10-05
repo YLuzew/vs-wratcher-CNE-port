@@ -23,6 +23,15 @@ class Flags {
 	public static var MOD_DESCRIPTION:String = "";
 	public static var MOD_AUTHOR:String = "";
 	public static var MOD_API_VERSION:Int = 1;
+
+	/** Whether "shit" ratings should break the player's combo. */
+	public static var SHITS_BREAK_COMBO:Bool = true;
+
+	/**
+	 * Whether to use the legacy (pre-scoring-system) judgement timing.
+	 * Set this to `false` in a mod's `flags.ini` to opt into the new RatingManager-based timing.
+	 */
+	public static var USE_LEGACY_TIMING:Bool = true;
 	public static var MOD_DOWNLOAD_LINK:String  = "";
 	public static var MOD_DEPENDENCIES:Array<String> = [];
 
